@@ -29,7 +29,7 @@ class Request
 
         $this->parameters = new Parameter($this->requestJson);
 
-        $this->method = $_SERVER['HTTP_METHOD'] ?? 'GET';
+        $this->method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
     }
 
     private function fetchRequestBody(): string

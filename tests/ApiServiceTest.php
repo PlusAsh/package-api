@@ -174,7 +174,7 @@ class ApiServiceTest extends TestCase
         };
 
         $runTestFor = function(string $method, string $uri, bool $not = false) use ($getAcceptedActions) {
-            $_SERVER['HTTP_METHOD'] = $method;
+            $_SERVER['REQUEST_METHOD'] = $method;
             $_SERVER['REQUEST_URI'] = $uri;
 
             $testMethod = 'assertContains';
