@@ -2,7 +2,7 @@
 
 namespace AshleyHardy\JsonApi;
 
-use AshleyHardy\Utilities\Utils;
+use AshleyHardy\Utilities\Str;
 
 class Dispatcher 
 {
@@ -63,12 +63,12 @@ class Dispatcher
 
     private function getControllerName(): string
     {
-        return Utils::kebabToPascal($this->route->getControllerName()) . 'Controller';
+        return Str::kebabToPascal($this->route->getControllerName()) . 'Controller';
     }
 
     private function getMethodName(): string
     {
-        return Utils::kebabToCamel($this->route->getActionName());
+        return Str::kebabToCamel($this->route->getActionName());
     }
 
     public function dispatch()
