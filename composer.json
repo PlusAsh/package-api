@@ -1,0 +1,24 @@
+{
+    "name": "ashley-hardy/json-api",
+    "description": "A simple view-controller framework for rapid development of JSON API services around existing entities.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AshleyHardy\\JsonApi\\": "src/",
+            "AshleyHardy\\JsonApi\\TestResources\\": "tests/resources/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ashley Hardy",
+            "email": "a.hardy@h4rdy.co.uk"
+        }
+    ],
+    "require": {
+        "ashley-hardy/utilities": "^1.0"
+    }
+}
