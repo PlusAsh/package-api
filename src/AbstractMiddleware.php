@@ -13,5 +13,8 @@ abstract class AbstractMiddleware
 
     abstract public function run(): bool;
 
-    abstract public function rejection(): Response;
+    public function rejection(): Response
+    {
+        return Response::message('Requested rejected by ' . get_class($this));
+    }
 }
