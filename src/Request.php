@@ -11,6 +11,7 @@ class Request
     private string $requestBody;
     private ?array $jsonError;
     private Parameter $parameters;
+    private string $method = 'GET';
 
     public function __construct()
     {
@@ -27,6 +28,8 @@ class Request
         }
 
         $this->parameters = new Parameter($this->requestJson);
+
+        $this->method = $_SERVER['HTTP_METHOD'] ?? 'GET';
     }
 
     private function fetchRequestBody(): string
@@ -62,5 +65,10 @@ class Request
     public function getRoute(): Route
     {
         return $this->route;
+    }
+
+    public function getRequestMethod(): string
+    {
+        return $this->method;
     }
 }

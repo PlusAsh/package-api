@@ -2,7 +2,9 @@
 
 namespace AshleyHardy\JsonApi;
 
+use AshleyHardy\JsonApi\Attribute\Method;
 use AshleyHardy\Utilities\Str;
+use ReflectionClass;
 
 class Dispatcher 
 {
@@ -40,7 +42,11 @@ class Dispatcher
         if($controllerClass == null) return false;
 
         $methodName = $this->getMethodName();
-        return method_exists($controllerClass, $methodName);
+        if(!method_exists($controllerClass, $methodName)) return false;
+
+        if(!in_array($this->request->getRequestMethod(), $this->getAcceptedMethodsForAction())) return false;
+
+        return true;
     }
 
     private function getControllerClass(): ?string
@@ -69,6 +75,18 @@ class Dispatcher
     private function getMethodName(): string
     {
         return Str::kebabToCamel($this->route->getActionName());
+    }
+
+    public function getAcceptedMethodsForAction(): array
+    {
+        $controller = $this->getControllerInstance();
+        $reflector = new ReflectionClass($controller);
+        $method = $reflector->getMethod($this->getMethodName());
+        
+        $attribute = $method->getAttributes(Method::class)[0] ?? null;
+        if(!$attribute) return [];
+
+        return $attribute->getArguments();
     }
 
     public function dispatch()

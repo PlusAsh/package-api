@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use AshleyHardy\JsonApi\AbstractController;
 use AshleyHardy\JsonApi\Dispatcher;
 use AshleyHardy\JsonApi\Middleware;
 use AshleyHardy\JsonApi\Parameter;
@@ -161,5 +162,33 @@ class ApiServiceTest extends TestCase
             $response,
             'The BadMiddleware check should not validate and should return a Response object for rendering, indicating the request must exit here. Middleware: ' . implode(', ', Middleware::getRegistered())
         );
+    }
+
+    public function testMethodAccepts(): void
+    {
+        $namespace = 'AshleyHardy\\JsonApi\\TestResources';
+        Dispatcher::addNamespace($namespace);
+
+        $getAcceptedActions = function(): array {
+            return (new Dispatcher(new Request()))->getAcceptedMethodsForAction();
+        };
+
+        $runTestFor = function(string $method, string $uri, bool $not = false) use ($getAcceptedActions) {
+            $_SERVER['HTTP_METHOD'] = $method;
+            $_SERVER['REQUEST_URI'] = $uri;
+
+            $testMethod = 'assertContains';
+            if($not) $testMethod = 'assertNotContains';
+
+            $this->$testMethod(
+                $method,
+                $getAcceptedActions()
+            );
+        };
+
+        $runTestFor('POST', 'test/accepts-post');
+        $runTestFor('PUT', 'test/accepts-post-and-put');
+        $runTestFor('POST', 'test/accepts-post-and-put');
+        $runTestFor('GET', 'test/accepts-nothing', true);
     }
 }
