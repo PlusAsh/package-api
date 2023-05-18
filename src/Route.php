@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AshleyHardy\JsonApi;
+namespace AshleyHardy\Framework;
 
 use Hardy\PeriodApi\Issues\ApiIssue;
 

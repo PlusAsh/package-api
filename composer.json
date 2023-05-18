@@ -1,5 +1,5 @@
 {
-    "name": "ashley-hardy/json-api",
+    "name": "ashley-hardy/framework",
     "description": "A simple view-controller framework for rapid development of JSON API services around existing entities.",
     "type": "library",
     "require-dev": {
@@ -8,8 +8,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "AshleyHardy\\JsonApi\\": "src/",
-            "AshleyHardy\\JsonApi\\TestResources\\": "tests/resources/"
+            "AshleyHardy\\Framework\\": "src/",
+            "AshleyHardy\\Framework\\TestResources\\": "tests/resources/"
         }
     },
     "authors": [

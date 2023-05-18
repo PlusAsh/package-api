@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace AshleyHardy\JsonApi\TestResources;
+namespace AshleyHardy\Framework\TestResources;
 
-use AshleyHardy\JsonApi\AbstractController;
-use AshleyHardy\JsonApi\Response;
-use AshleyHardy\JsonApi\Attribute\Method;
+use AshleyHardy\Framework\AbstractController;
+use AshleyHardy\Framework\Response;
+use AshleyHardy\Framework\Attribute\Method;
 
 class TestController extends AbstractController
 {

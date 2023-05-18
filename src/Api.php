@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace AshleyHardy\JsonApi;
+namespace AshleyHardy\Framework;
 
 use Exception;
-use AshleyHardy\JsonApi\Dispatcher;
-use AshleyHardy\JsonApi\Request;
-use AshleyHardy\JsonApi\Response;
-use AshleyHardy\JsonApi\SystemResponse;
-use AshleyHardy\JsonApi\Middleware;
+use AshleyHardy\Framework\Dispatcher;
+use AshleyHardy\Framework\Request;
+use AshleyHardy\Framework\Response;
+use AshleyHardy\Framework\SystemResponse;
+use AshleyHardy\Framework\Middleware;
 
 class Api
 {

@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-use AshleyHardy\JsonApi\AbstractController;
-use AshleyHardy\JsonApi\Dispatcher;
-use AshleyHardy\JsonApi\Middleware;
-use AshleyHardy\JsonApi\Parameter;
-use AshleyHardy\JsonApi\Request;
-use AshleyHardy\JsonApi\Response;
-use AshleyHardy\JsonApi\Route;
-use AshleyHardy\JsonApi\TestResources\TestBadMiddleware;
-use AshleyHardy\JsonApi\TestResources\TestGoodMiddleware;
+use AshleyHardy\Framework\AbstractController;
+use AshleyHardy\Framework\Dispatcher;
+use AshleyHardy\Framework\Middleware;
+use AshleyHardy\Framework\Parameter;
+use AshleyHardy\Framework\Request;
+use AshleyHardy\Framework\Response;
+use AshleyHardy\Framework\Route;
+use AshleyHardy\Framework\TestResources\TestBadMiddleware;
+use AshleyHardy\Framework\TestResources\TestGoodMiddleware;
 use PHPUnit\Framework\TestCase;
 
 class ApiServiceTest extends TestCase
@@ -108,7 +108,7 @@ class ApiServiceTest extends TestCase
 
     public function testDispatcherClass(): void
     {
-        $namespace = 'AshleyHardy\\JsonApi\\TestResources';
+        $namespace = 'AshleyHardy\\Framework\\TestResources';
         Dispatcher::addNamespace($namespace);
 
         $this->assertEquals(
@@ -166,7 +166,7 @@ class ApiServiceTest extends TestCase
 
     public function testMethodAccepts(): void
     {
-        $namespace = 'AshleyHardy\\JsonApi\\TestResources';
+        $namespace = 'AshleyHardy\\Framework\\TestResources';
         Dispatcher::addNamespace($namespace);
 
         $getAcceptedActions = function(): array {

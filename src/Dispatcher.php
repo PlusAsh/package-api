@@ -1,8 +1,8 @@
 <?php
 
-namespace AshleyHardy\JsonApi;
+namespace AshleyHardy\Framework;
 
-use AshleyHardy\JsonApi\Attribute\Method;
+use AshleyHardy\Framework\Attribute\Method;
 use AshleyHardy\Utilities\Str;
 use ReflectionClass;
 

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace AshleyHardy\JsonApi\TestResources;
+namespace AshleyHardy\Framework\TestResources;
 
-use AshleyHardy\JsonApi\AbstractMiddleware;
-use AshleyHardy\JsonApi\Response;
+use AshleyHardy\Framework\AbstractMiddleware;
+use AshleyHardy\Framework\Response;
 
 class TestGoodMiddleware extends AbstractMiddleware
 {
